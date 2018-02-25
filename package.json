@@ -1,7 +1,7 @@
 {
-    "name": "angular2-in-plain-js",
-    "version": "0.3.0",
-    "license": "ISC",
+    "name": "BorrowIt",
+    "version": "0.0.1",
+    "license": "MIT",
     "dependencies": {
 	"core-js": "^2.4.0",
 	"zone.js": "0.6.12",
