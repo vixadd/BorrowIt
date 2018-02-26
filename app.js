@@ -7,7 +7,11 @@
     var BorrowItApp =
 	ng.core.Component({
 	    selector: 'BorrowIt',
-	    template:'<img src="./assets/img/BorrowIt.png">'
+	    template:'
+<app-header></app-header>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+'
 	})
 
 	.Class({
