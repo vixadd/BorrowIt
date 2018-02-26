@@ -4,16 +4,17 @@
  * Author: David Kroell, Jonah Lazar
  */
 
+// Dependencies for the main application
+//= require header/header
+//= require home/home
+//= require footer/footer
+
 (function() {
 
     var BorrowItApp =
 	ng.core.Component({
 	    selector:'BorrowIt',
-	    template:'
-<app-header></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
-',
+	    template:'<app-header></app-header><router-outlet></router-outlet><app-footer></app-footer>',
 
 	    
 	})
