@@ -1,21 +1,30 @@
 /*
  * Initial standing of the application core.
+ * 
+ * Author: David Kroell, Jonah Lazar
  */
 
 (function() {
 
     var BorrowItApp =
 	ng.core.Component({
-	    selector: 'BorrowIt',
+	    selector:'BorrowIt',
 	    template:'
 <app-header></app-header>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
-'
+',
+
+	    
 	})
 
 	.Class({
-	    constructor: function() {}
+	    constructor: [ ng.router.Router, function(router) {
+		router.config([
+		    // {path: '', name:'', component:'', useAsDefault: true}
+		    {path:'/', name:'Index', component:'HomeComponent', useAsDefault:true}
+		]);
+	    }]
 	});
 
     
