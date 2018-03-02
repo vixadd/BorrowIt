@@ -11,22 +11,24 @@
 
 (function() {
 
-    var BorrowItApp =
-	ng.core.Component({
-	    selector:'BorrowIt',
-	    template:'<app-header></app-header><router-outlet></router-outlet><app-footer></app-footer>',
+    var BorrowItApp
+	.annotations =
+	[new ng.core.Component({
+	    selector:'app-root',
+	    template:'hello<app-header></app-header><router-outlet></router-outlet><app-footer></app-footer>',
 
 	    
-	})
+	})];
 
-	.Class({
-	    constructor: [ ng.router.Router, function(router) {
+    BorrowItApp.parameters = [
+
+	[ new ng.router.Router, function(router) {
 		router.config([
 		    // {path: '', name:'', component:'', useAsDefault: true}
 		    {path:'/', name:'Index', component:'HomeComponent', useAsDefault:true}
 		]);
 	    }]
-	});
+	]
 
     
     document.addEventListener('DOMContentLoaded', function() {
