@@ -2,14 +2,13 @@
 <html>
 
   <head ng-app="BorrowIt">
-
-    <title>{{ metadata.title || 'Welcome to BorrowIt'}</title>
+    <!-- Site information. -->
+    <title>BorrowIt</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/style/index.css">
     
-    <!-- Stuff AngularJS Needs-->
-    <script src="./app.js"></script>
+    <!-- Stuff AngularJS Needs. -->
     <script src="vendor/angular-1.6.9/angular.js"></script>
     <script src="vendor/angular-1.6.9/angular-route.js"></script>
     
@@ -17,6 +16,14 @@
 
   <body>
 
+    <div class="container">
+      <div ng-view>
+      </div>
+    </div>
+    
+
+    <!-- Stuff out application needs. -->
+    <script src="./app.js"></script>
 
   </body>
 
