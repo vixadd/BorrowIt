@@ -13,11 +13,11 @@ angular.module("BorrowIt", ['ngRoute'])
     .config(function($routeProvider, $locationProvider) {
 
 	$routeProvider
-	
+
 	// For user management, as well as views.
 	    .when('/user/:id', {
-		templateUrl: 'user/user.html',
-		styleUrl:    'user/user.css',
+		templateUrl: './user/user.html',
+		css:    './user/user.css',
 		controller:  'UserController',
 		resolve: {
 		    // get user information by a call through some server api here.
@@ -26,17 +26,17 @@ angular.module("BorrowIt", ['ngRoute'])
 
 	// If we are in the home directory
 	    .when('/', {
-		templateUrl: 'home/home.html',
-		styleUrl: 'home/home.css',
+		templateUrl: './home/home.html',
+		css: './home/home.css',
 		controller: 'HomeController',
 	    })
 
 	    .otherwise({ redirectTo: '/'});
-	
+
     })
 
 
     .controller("AppController", function($rootScope) {
-	// Main application controller here.
+	$scope.text = "Welcome";
     });
 
