@@ -28,7 +28,7 @@ angular.module("BorrowIt", ['ngRoute'])
 	    .when('/', {
 		templateUrl: './home/home.html',
 		css: './home/home.css',
-		controller: 'HomeController',
+		//controller: 'HomeController',
 	    })
 
 	    .otherwise({ redirectTo: '/'});
