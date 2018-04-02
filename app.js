@@ -10,20 +10,21 @@
 angular.module("BorrowIt", ['ngRoute'])
 
     // Configure the application with the routing system.
-    .config(function($routeProvider, $locationProvider) {
+    .config(['$routeProvider', '$locationProvider',
+	     function($routeProvider, $locationProvider) {
 
 	$routeProvider
 	// Signin Page
-	    .when('/singin', {
-		templateUrl:'./singin.html',
+	    .when('/signin', {
+		templateUrl:'./signin/signin.html',
 		controller: 'SiginIn',
-		css: './signin.css'
+		css: './signin/signin.css'
 	    })
 	// Signup page
 	    .when('./signup', {
-		templateUrl: './signup.html',
+		templateUrl: './signup/signup.html',
 		controller: 'SignUp',
-		css: './signup.css'
+		css: './signup/signup.css'
 	    })
 
 	    .when('./item/:id', {
@@ -63,7 +64,7 @@ angular.module("BorrowIt", ['ngRoute'])
 
 	    .otherwise({ redirectTo: '/'});
 
-    })
+    }])
 
 
     .controller("AppController", function($rootScope) {
