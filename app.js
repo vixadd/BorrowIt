@@ -13,7 +13,37 @@ angular.module("BorrowIt", ['ngRoute'])
     .config(function($routeProvider, $locationProvider) {
 
 	$routeProvider
+	// Signin Page
+	    .when('/singin', {
+		templateUrl:'./singin.html',
+		controller: 'SiginIn',
+		css: './signin.css'
+	    })
+	// Signup page
+	    .when('./signup', {
+		templateUrl: './signup.html',
+		controller: 'SignUp',
+		css: './signup.css'
+	    })
 
+	    .when('./item/:id', {
+		templateUrl: './item/item.html',
+		css: './item/item.css',
+		controller: 'ItemController',
+		resolve: {
+		    // Pull relevant information.
+		}
+	    })
+
+	    .when('./search/:param', {
+		templateUrl: './search/search.html',
+		css: './search/search.css',
+		controller: 'Search',
+		resolve: {
+		    // Pull relevant information from the source.
+		}
+	    })
+	
 	// For user management, as well as views.
 	    .when('/user/:id', {
 		templateUrl: './user/user.html',
@@ -28,7 +58,7 @@ angular.module("BorrowIt", ['ngRoute'])
 	    .when('/', {
 		templateUrl: './home/home.html',
 		css: './home/home.css',
-		//controller: 'HomeController',
+		controller: 'HomeController',
 	    })
 
 	    .otherwise({ redirectTo: '/'});
@@ -39,4 +69,3 @@ angular.module("BorrowIt", ['ngRoute'])
     .controller("AppController", function($rootScope) {
 	$scope.text = "Welcome";
     });
-
