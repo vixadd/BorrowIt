@@ -18,16 +18,17 @@ app.controller('ItemController', ['$routeParams', function($routeParams) {
 		
 		vm.itemOwner = {}
 		
-		
+		vm.maxStars = 5;
 		
 		vm.getItem = function(itemId){
 			vm.item = {
 				name : "Red Bicycle",
 				owner: "OWNER-UID-HERE",
-				pics: ["http://www.gaebler.com/images/startbiz/Used-Bicycle-Shop.jpg", "https://www.roysbike.com/images/schwinn_used_big.jpg", "https://pedalrevolutionblog.files.wordpress.com/2011/11/0091.jpg"],
+				pic: "http://www.gaebler.com/images/startbiz/Used-Bicycle-Shop.jpg",
 				maxBorrowTime: 60,
 				description: "Red, slightly used, but it will get you where you're going.",
-				condition: 6,
+				comments: ["Great bike. Would ride again.", "A little shaky, but it didn't fall apart on me."],
+				condition: 3,
 				available : true
 			}
 		}
@@ -39,6 +40,10 @@ app.controller('ItemController', ['$routeParams', function($routeParams) {
 				userId: "OWNER-UID-HERE",
 				profilePic: "url-to-profile-pic"
 			}
+		}
+		
+		vm.range = function(number){
+			return new Array(number);
 		}
 		
 		vm.getItem(vm.itemId);
