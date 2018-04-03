@@ -14,14 +14,14 @@ angular.module('BorrowIt')
 	
 	vm.items = [
 	    {
-		url: 'http://tutorialzine.com/2013/07/50-must-have-plugins-for-extending-twitter-bootstrap/',
-		title: '50 Must-have plugins for extending Twitter Bootstrap',
-		image: 'http://cdn.tutorialzine.com/wp-content/uploads/2013/07/featured_4-100x100.jpg'
+		url: 'https://static.computercablestore.net/content/images/thumbs/0012304_10-meter-328-ft-high-speed-hdmi-cable-with-ethernet.jpeg',
+		title: 'HDMI Cable: 6 Feet long, and good Quality',
+		image: 'https://static.computercablestore.net/content/images/thumbs/0012304_10-meter-328-ft-high-speed-hdmi-cable-with-ethernet.jpeg'
 	    },
 	    {
-		url: 'http://tutorialzine.com/2013/08/simple-registration-system-php-mysql/',
-		title: 'Making a Super Simple Registration System With PHP and MySQL',
-		image: 'http://cdn.tutorialzine.com/wp-content/uploads/2013/08/simple_registration_system-100x100.jpg'
+		url: 'https://sgcdn.startech.com/005329/media/products/main/HDMIDVIFM.Main.jpg',
+		title: 'HDMI to DVI-D Video Cable Adapter : F/M',
+		image: 'https://sgcdn.startech.com/005329/media/products/main/HDMIDVIFM.Main.jpg'
 	    }];
     }).filter('searchFor', function(){
 

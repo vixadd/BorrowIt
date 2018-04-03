@@ -1,20 +1,25 @@
-<!DOCTYPE html>
-<html>
-  <link rel="stylesheet" href="./search/search.css"></link>
-	
+<link rel="stylesheet" href="./search/search.css"></link>
+<div style="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
   <form class="search-container">
-        <input type="text" id="search-bar" ng-model="searchString" placeholder="Search for an item you'd like to borrow..."></input>
+        <input type="text" id="search-bar" ng-model="searchString" placeholder="Search for an item you'd like to borrow..." autocomplete="off"></input>
     <img class="search-icon" src="./assets/img/search-icon.png" style="left:0%"></img>
   </form>
 
-  <ul>
+      <ul>
     <!-- Render a li element for every entry in the items array. Notice
 	  the custom search filter "searchFor". It takes the value of the
 	   searchString model as an argument.
       -->
+
     <li ng-repeat="i in vm.items | searchFor:searchString">
       <a href="{{i.url}}"><img ng-src="{{i.image}}" /></a>
       <p>{{i.title}}</p>
     </li>
-  </ul>
-</html>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
