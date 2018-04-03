@@ -14,12 +14,6 @@ angular.module("BorrowIt", ['ngRoute'])
 	     function($routeProvider, $locationProvider) {
 
 	$routeProvider
-	// Signin Page
-	    .when('/signin', {
-		templateUrl:'./signin/signin.html',
-		controller: 'SiginIn',
-		css: './signin/signin.css'
-	    })
 	// Signup page
 	    .when('./signup', {
 		templateUrl: './signup/signup.html',
