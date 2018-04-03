@@ -26,33 +26,11 @@ angular.module("BorrowIt", ['ngRoute'])
 		controller: 'SignUp',
 		css: './signup/signup.css'
 	    })
-
-	    .when('./item/:id', {
-		templateUrl: './item/item.html',
-		css: './item/item.css',
-		controller: 'ItemController',
-		resolve: {
-		    // Pull relevant information.
-		}
-	    })
-
-	    .when('./search/:param', {
-		templateUrl: './search/search.html',
-		css: './search/search.css',
-		controller: 'Search',
-		resolve: {
-		    // Pull relevant information from the source.
-		}
-	    })
-	
 	// For user management, as well as views.
 	    .when('/user/:id', {
 		templateUrl: './user/user.html',
 		css:    './user/user.css',
-		controller:  'UserController',
-		resolve: {
-		    // get user information by a call through some server api here.
-		}
+		controller:  'UserController'
 	    })
 
 	// If we are in the home directory

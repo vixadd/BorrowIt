@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="BorrowIt">
+<html data-ng-app="BorrowIt">
 
   <head>
     <!-- Site information. -->
@@ -16,6 +16,7 @@
     <!-- Stuff out application needs. -->
     <script type="text/javascript" src="./app.js"></script>
     <script type="text/javascript" src="./home/home.js"></script>
+    <script type="text/javascript" src="./item/item.js"></script>
     <script
        src="https://code.jquery.com/jquery-2.1.3.min.js"
        integrity="sha256-ivk71nXhz9nsyFDoYoGf2sbjrR9ddh+XDkCcfZxjvcM="
@@ -26,6 +27,7 @@
 
   <body style="background-color: #543D84;">
 
+<!-- Nav Bar -->
     <div class="nav">
       <div class="container">
 	<ul class="pull-left">
@@ -41,9 +43,10 @@
 	</ul>
       </div>
     </div>
-    
+<!-- End Nav Bar -->
+
     <div>
-      <div ng-view>
+      <div data-ng-view>
       </div>
     </div>
 
