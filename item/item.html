@@ -12,14 +12,48 @@
 	</div>
 	<hr>
 	<div class="row">
-		<div class="col-md-3 col-md-offset-1">
+		<div class="col-md-8 col-md-offset-2">
 			<p class="lead">{{vm.item.description}}</p>
 		</div>
-		<div class="col-md-8">
-			<h4>
-				Condition
-				<span class="fa fa-star fa-1x" data-ng-repeat="i in vm.range(vm.maxStars) track by $index" data-ng-class="vm.item.condition > $index ? 'filled' : ''"></span>
-			</h4>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<h2>
+				<span class="pull-left">Owner</span>
+				<span class="pull-right"><a data-ng-href="#!/user/vm.item.owner">{{vm.itemOwner.userName}}</a></span>
+			</h2>
 		</div>
 	</div>
+	
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<h2>
+				<span class="pull-left">Condition</span>
+				<span class="pull-right fa fa-star fa-1x" data-ng-repeat="i in vm.range(vm.maxStars) track by $index" data-ng-class="vm.item.condition <= $index+1 ? 'filled' : ''"></span>
+			</h2>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<h2>
+				<span class="pull-left">Status</span>
+				<span class="pull-right" data-ng-class="vm.item.available ? 'text-success' : 'text-danger'">{{vm.item.available ? 'Available' : 'Unavailable'}}</span>
+			</h2>
+		</div>
+	</div>
+	
+	<hr>
+	
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<blockquote data-ng-repeat="comment in vm.item.comments track by $index" data-ng-class="$index%2==0 ? '' : 'blockquote-reverse'">
+		  		<p>{{comment.text}}</p>
+		 		<footer><a data-ng-href="#!/user/comment.userId">{{comment.userName}}</a></footer>
+			</blockquote>
+		</div>
+	</div>
+	
+	
 </div>
