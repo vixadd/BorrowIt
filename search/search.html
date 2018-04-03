@@ -1,25 +1,35 @@
 <link rel="stylesheet" href="./search/search.css"></link>
-<div style="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-  <form class="search-container">
-        <input type="text" id="search-bar" ng-model="searchString" placeholder="Search for an item you'd like to borrow..." autocomplete="off"></input>
-    <img class="search-icon" src="./assets/img/search-icon.png" style="left:0%"></img>
-  </form>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
 
-      <ul>
-    <!-- Render a li element for every entry in the items array. Notice
-	  the custom search filter "searchFor". It takes the value of the
-	   searchString model as an argument.
-      -->
+			<div class="search">
+				<input type="text" class="form-control" id="search-bar"
+					data-ng-model="searchString" placeholder="Search for an item..."
+					autocomplete="off"> <span class="fa fa-search"></span>
+			</div>
 
-    <li ng-repeat="i in vm.items | searchFor:searchString">
-      <a href="{{i.url}}"><img ng-src="{{i.image}}" /></a>
-      <p>{{i.title}}</p>
-    </li>
-      </ul>
-    </div>
-  </div>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="list-group">
+					<a class="list-group-item"
+						data-ng-repeat="item in vm.items | searchFor:searchString"
+						data-ng-href="#!/item/{{item.id}}">
+							<div class="row">
+								<div class="col-md-2">
+									<img class="img img-responsive img-thumbnail item-image" data-ng-src="{{item.image}}" />
+								</div>
+								<h4>{{item.title}}</h4>
+								{{item.description | limitTo:80}}{{item.description.length>80 ? '...' : ''}}
+							</div>	
+								
+					</a>
+			</div>
+		</div>
+	</div>
 </div>
 
 

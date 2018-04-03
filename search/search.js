@@ -14,15 +14,24 @@ angular.module('BorrowIt')
 	
 	vm.items = [
 	    {
-		url: 'https://static.computercablestore.net/content/images/thumbs/0012304_10-meter-328-ft-high-speed-hdmi-cable-with-ethernet.jpeg',
-		title: 'HDMI Cable: 6 Feet long, and good Quality',
-		image: 'https://static.computercablestore.net/content/images/thumbs/0012304_10-meter-328-ft-high-speed-hdmi-cable-with-ethernet.jpeg'
+			id: 'ITEM1',
+			title: 'HDMI Cable: 6 Feet long, and good Quality',
+			image: 'https://static.computercablestore.net/content/images/thumbs/0012304_10-meter-328-ft-high-speed-hdmi-cable-with-ethernet.jpeg',
+			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 	    },
 	    {
-		url: 'https://sgcdn.startech.com/005329/media/products/main/HDMIDVIFM.Main.jpg',
-		title: 'HDMI to DVI-D Video Cable Adapter : F/M',
-		image: 'https://sgcdn.startech.com/005329/media/products/main/HDMIDVIFM.Main.jpg'
-	    }];
+			id: 'ITEM2',
+			title: 'HDMI to DVI-D Video Cable Adapter : F/M',
+			image: 'https://sgcdn.startech.com/005329/media/products/main/HDMIDVIFM.Main.jpg',
+			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+	    },
+	    {
+	    	id: "ITEM3",
+	    	title: "Red Bicycle",
+	    	image: "http://www.gaebler.com/images/startbiz/Used-Bicycle-Shop.jpg",
+	    	description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+	    }
+	];
     }).filter('searchFor', function(){
 
     // All filters must return a function. The first parameter
