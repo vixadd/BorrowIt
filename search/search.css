@@ -1,8 +1,6 @@
 .search-container {
-    width: 50%;
     display: block;
     margin: 0 auto;
-    background-color:#543D84
 }
 
 input#search-bar {
@@ -11,13 +9,13 @@ input#search-bar {
     height: 45px;
     padding: 0 20px;
     font-size: 1.5rem;
-    border: 1px solid #543D84;
+    border: 0px solid #FFFFFF;
     outline: none;
 }
 input#search-bar:focus {
     border: 1px solid #543D84;
     transition: 0.35s ease;
-    color: ##543D84;
+    color: #543D84;
 }
 
 input#search-bar:focus::-webkit-input-placeholder {
@@ -45,14 +43,14 @@ input#search-bar:focus:-ms-placeholder {
 
 ul{
     list-style: none;
-    width: 428px;
     margin: 0 auto;
     text-align: left;
+    background-color:#fff;
 }
 
 ul li{
     border-bottom: 1px solid #ddd;
-    padding: 10px;
+    padding: 0px;
     overflow: hidden;
 }
 
