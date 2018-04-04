@@ -15,5 +15,5 @@ angular.module('BorrowIt')
     ])
 
     .controller('ItemFormController', function() {
-	var vm = this;
+    var vm = this;
     });
