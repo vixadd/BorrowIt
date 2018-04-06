@@ -9,8 +9,15 @@ angular.module('BorrowIt')
 	)}
     ])
 
-    .controller('SearchController', function() {
+    .controller('SearchController', ['$routeParams', function($routeParams) {
 	var vm = this;
+	
+	vm.searchString = "";
+	
+	if($routeParams.q){
+		console.log($routeParams);
+		vm.searchString = $routeParams.q;
+	}
 	
 	vm.items = [
 	    {
@@ -32,7 +39,7 @@ angular.module('BorrowIt')
 	    	description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 	    }
 	];
-    }).filter('searchFor', function(){
+    }]).filter('searchFor', function(){
 
     // All filters must return a function. The first parameter
     // is the data that is to be filtered, and the second is an

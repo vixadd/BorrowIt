@@ -26,14 +26,6 @@ angular.module("BorrowIt", ['ngRoute'])
 		css:    './user/user.css',
 		controller:  'UserController'
 	    })
-
-	// If we are in the home directory
-	    .when('/', {
-		templateUrl: './home/home.html',
-		css: './home/home.css',
-		controller: 'HomeController',
-	    })
-
 	    .otherwise({ redirectTo: '/'});
 
     }])

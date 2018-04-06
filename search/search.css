@@ -7,24 +7,32 @@ input#search-bar {
     border: 0px solid #FFFFFF;
     outline: none;
 }
+
+
 input#search-bar:focus {
     border: 1px solid #543D84;
-    transition: 0.35s ease;
+    transition: 0.05s ease;
     color: #543D84;
 }
 
-input.search:focus::-webkit-input-placeholder {
-    transition: opacity 0.45s ease;
+input#search-bar::-webkit-input-placeholder {
+	transition: opacity 0.25s ease;
+	opacity: 1;
+}
+
+input#search-bar:focus::-webkit-input-placeholder {
+    transition: opacity 0.25s ease;
     opacity: 0;
 }
-input.search:focus::-moz-placeholder {
-    transition: opacity 0.45s ease;
+input#search-bar:focus::-moz-placeholder {
+    transition: opacity 0.25s ease;
     opacity: 0;
 }
-input.search:focus:-ms-placeholder {
-    transition: opacity 0.45s ease;
+input#search-bar:focus:-ms-placeholder {
+    transition: opacity 0.25s ease;
     opacity: 0;
 }
+
 
 img.item-image{
 	width: 60px;
@@ -33,9 +41,26 @@ img.item-image{
 
 .search { position: relative; }
 .search input { text-indent: 0px;}
-.search .fa-search { 
+
+.fa-search { 
   position: absolute;
   top: 25%;
-  left: 93%;
+  left: 30%;
   font-size: 20px;
+}
+
+.search-button {
+  position: absolute;
+  top: 0%;
+  left: 93%;
+  width: 50px;
+  height: 45px;
+  font-size: 20px;
+  border: 0px;
+  background-color: transparent;
+  outline: none;
+}
+
+.search-button:hover .fa-search {
+	text-shadow: 2px 2px 2px #aaaaaa;
 }

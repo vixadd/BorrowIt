@@ -4,10 +4,12 @@
 		<div class="col-md-8 col-md-offset-2">
 
 			<div class="search">
-				<input type="text" class="form-control" id="search-bar"
-					data-ng-model="searchString" placeholder="Search for an item..."
-					autocomplete="off"> <span class="fa fa-search"></span>
-			</div>
+					<input type="text" class="form-control" id="search-bar"
+						data-ng-model="vm.searchString" placeholder="Search for an item..."
+						autocomplete="off">
+						
+					<button class="search-button" type="submit"><span class="fa fa-search"></span></button>
+			  </div>
 
 		</div>
 	</div>
@@ -16,7 +18,7 @@
 		<div class="col-md-8 col-md-offset-2">
 			<div class="list-group">
 					<a class="list-group-item"
-						data-ng-repeat="item in vm.items | searchFor:searchString"
+						data-ng-repeat="item in vm.items | searchFor:vm.searchString"
 						data-ng-href="#!/item/{{item.id}}">
 							<div class="row">
 								<div class="col-md-2">
