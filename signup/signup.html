@@ -3,19 +3,18 @@
   <div class="col-md-6 col-md-offset-3">
     <img src="./assets/img/BorrowIt-bw.png" style="padding:10%; height:65%; width:65%; margin-left:17%"></img>
     <p id="profile-name" class="profile-name-card"></p>
-    <form class="form-signup">
-      <span id="inp-personal" class="inp-personal"></span>
-      <input ng-model="name" type="name" id="full name" class="form-control" placeholder="Enter you full name" required>
-      <input ng-model="dob" type="date" id="dob" class="form-control" placeholder="DOB" required style="width:25%;">
-	<label> Date of Birth </label> </input>
-      <span id="inp-email" class="inp-email"></span>
-      <input ng-model="inputEmail" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-      <input ng-model="confEmail" type="conf-email" id="confEmail" class="form-control" placeholder="Confirm Email adress" required autofocus>
-      <input ng-model="college" type="College" id="inputCollege" class="form-control" placeholder="Enter the college you attend" required autofocus>
-      <input ng-model="pass" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-      <input ng-model="confPass" type="conf-password" id="confPassword" class="form-control" placeholder="Confirm Password" required>
-      </div>
-      <button ng-click="onSignupClick()" class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
-    </form>
+    <form class="form-signin">
+      <span id="reauth-email" class="reauth-email"></span>
+      <input type="name"  id="inputName"  class="form-control" placeholder="Enter your full name" required>
+      <div class="block">
+	<label style="display:inline-block;"><i>(Date of Birth)</i></label>
+	<input style="width:25%; float:left;" type="date" id="dob" class="form-control" placeholders="Enter your full name" required>
+      </div></br>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <input type="emailconf" id="confEmail" class="form-control" placeholder="Confirm Email address" required>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <input type="passwordconf" id ="confPassword" class="form-control" placeholder="Confirm password" required>
+      <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+    </form><!-- /form -->
   </div>
 </div>
