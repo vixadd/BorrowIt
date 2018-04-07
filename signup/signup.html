@@ -5,7 +5,7 @@
     <p id="profile-name" class="profile-name-card"></p>
     <form class="form-signin">
       <span id="reauth-email" class="reauth-email"></span>
-      <input type="name"  id="inputName"  class="form-control" placeholder="Enter your full name" required>
+      <input type="name" n id="inputName"  class="form-control" placeholder="Enter your full name" required>
       <div class="block">
 	<label style="display:inline-block;"><i>(Date of Birth)</i></label>
 	<input style="width:25%; float:left;" type="date" id="dob" class="form-control" placeholders="Enter your full name" required>
@@ -14,7 +14,7 @@
       <input type="emailconf" id="confEmail" class="form-control" placeholder="Confirm Email address" required>
       <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
       <input type="passwordconf" id ="confPassword" class="form-control" placeholder="Confirm password" required>
-      <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+      <button ng-click="vm.onSignupClick()" class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
     </form><!-- /form -->
   </div>
 </div>
