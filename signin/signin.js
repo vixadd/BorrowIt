@@ -5,6 +5,15 @@ angular.module('BorrowIt')
 	    controller: 'SigninController',
 	    controllerAs: 'vm'
 	})
-    }]).controller('SigninController', function() {
+    }]).controller('SigninController', ['$log', function($log) {
 	var vm = this;
-    });
+
+	vm.onSigninClick = function() {
+
+	    // Debug values
+	    $log.log(vm.inputEmail);
+	    $log.log(vm.inputPassword);
+	    $log.log(vm.remember_me);
+	}
+
+    }]);
