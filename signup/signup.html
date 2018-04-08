@@ -1,20 +1,33 @@
+
 <link rel="stylesheet" href="./search/search.css"></link>
+
 <div class="container">
+
   <div class="col-md-6 col-md-offset-3">
+
     <img src="./assets/img/BorrowIt-bw.png" style="padding:10%; height:65%; width:65%; margin-left:17%"></img>
+
     <p id="profile-name" class="profile-name-card"></p>
-    <form class="form-signin">
-      <span id="reauth-email" class="reauth-email"></span>
-      <input type="name" n id="inputName"  class="form-control" placeholder="Enter your full name" required>
-      <div class="block">
-	<label style="display:inline-block;"><i>(Date of Birth)</i></label>
-	<input style="width:25%; float:left;" type="date" id="dob" class="form-control" placeholders="Enter your full name" required>
-      </div></br>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-      <input type="emailconf" id="confEmail" class="form-control" placeholder="Confirm Email address" required>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-      <input type="passwordconf" id ="confPassword" class="form-control" placeholder="Confirm password" required>
-      <button ng-click="vm.onSignupClick()" class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
+    <form class="form-signup" ng-submit="vm.onSignupClick()">
+      
+	<span id="reauth-email" class="reauth-email"></span>
+      	<input type="name" ng-model="vm.name"  class="form-control" placeholder="Enter your full name" required>
+      	
+	<div class="block">
+		<label style="display:inline-block;"><i>(Date of Birth)</i></label>
+		<input style="width:25%; float:left;" type="date" ng-model="vm.dob" class="form-control" placeholders="Enter your full name" required>
+      	</div></br>
+
+	<input type="email" ng-model="vm.email" class="form-control" placeholder="Email address" required>
+      	<input type="email" ng-model="vm.confEmail" class="form-control" placeholder="Confirm Email address" required>
+      	</br>
+      	
+	<input type="password" ng-model="vm.inputPassword" class="form-control" placeholder="Password" required>
+      	<input type="password" ng-model="vm.confPassword" class="form-control" placeholder="Confirm password" required>
+
+	<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
     </form><!-- /form -->
+
   </div>
+
 </div>
