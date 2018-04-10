@@ -9,7 +9,7 @@ angular.module('BorrowIt')
 		templateUrl:'./signup/signup-success.html'
 	})
 
-    }]).controller('SignupController', ['$scope', function($scope) {
+    }]).controller('SignupController', ['$scope', '$location', function($scope, $location) {
 		var vm = this;
 		
 		vm.poolData = {
@@ -88,7 +88,7 @@ angular.module('BorrowIt')
 		        vm.cognitoUser = result.user;
 		        console.log("Successfully registered!")
 		        console.log('User name is: ' + vm.cognitoUser.getUsername());
-		        $location.url('/signin');
+		        $location.url('/signup-success');
 			});
 		}
 		
