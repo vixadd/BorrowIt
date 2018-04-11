@@ -1,0 +1,96 @@
+<link rel="stylesheet" href="./requests/requests.css">
+<div class="container">
+	<div class="row text-center">
+		<h1>Requests</h1>
+	</div>
+	<div>
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#borrowRequests" target="_self" role="tab" data-toggle="tab">My Requests</a></li>
+    <li role="presentation"><a href="#lendRequests" target="_self" role="tab" data-toggle="tab">Requests for Me</a></li>
+    <li role="presentation"><a href="#borrowing" target="_self" role="tab" data-toggle="tab">Borrowing</a></li>
+    <li role="presentation"><a href="#lending" target="_self" role="tab" data-toggle="tab">Lending</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="borrowRequests">
+    	<div class="row">
+    		<div class="col-md-10 col-md-offset-1">
+		    	<div class="list-group">
+					<a class="list-group-item"
+						data-ng-repeat="request in vm.borrowRequests"
+						data-ng-href="#!/item/{{request.item.id}}">
+							<div class="row">
+								<div class="col-md-2">
+									<img class="img img-responsive img-thumbnail item-image" data-ng-src="{{request.item.image}}" />
+								</div>
+								<div class="col-md-10">
+									<div class="row">
+										<h4>{{request.item.title}} <small data-ng-class="request.item.available ? 'text-success' : 'text-danger'">{{request.item.available ? 'Available' : 'Unavailable'}}</small></h4>
+									</div>
+									
+									<div class="row">
+										<div class="col-md-4 text-center">
+											<p>Owner:<button class="btn-small btn-link" data-ng-href="#!/user/{{request.owner}}">{{request.owner}}</button></p>
+										</div>
+										<div class="col-md-4 text-center">
+											<p data-ng-show="request.requestApproved">Contact Info: <small>{{request.ownerEmail}}</small></p>
+										</div>
+										<div class="col-md-4 text-center">
+											<p>Status: <strong data-ng-class="request.requestApproved ? 'text-success' : 'text-warning' ">{{request.requestApproved ? 'Approved' : 'Pending'}}</strong></p>
+										</div>
+									</div>
+								</div>
+							</div>	
+								
+					</a>
+				</div>
+			</div>
+		</div>
+    </div>
+    
+    <div role="tabpanel" class="tab-pane" id="lendRequests">
+    	<div class="row">
+    		<div class="col-md-10 col-md-offset-1">
+		    	<div class="list-group">
+					<a class="list-group-item"
+						data-ng-repeat="request in vm.borrowRequests"
+						data-ng-href="#!/item/{{request.item.id}}">
+							<div class="row">
+								<div class="col-md-2">
+									<img class="img img-responsive img-thumbnail item-image" data-ng-src="{{request.item.image}}" />
+								</div>
+								<div class="col-md-10">
+									<div class="row">
+										<h4>{{request.item.title}} <small data-ng-class="request.item.available ? 'text-success' : 'text-danger'">{{request.item.available ? 'Available' : 'Unavailable'}}</small></h4>
+									</div>
+									<div class="row">
+										<div class="col-md-4">
+											<p> Requested By: <button class="btn-small btn-link" data-ng-href="#!/user/{{request.requester}}">{{request.requester}}</button></p>
+										</div>
+										<div class="col-md-4">
+											<p class="" data-ng-show="request.requestApproved">Contact Info: <small>{{request.requesterEmail}}</small></p>
+										</div>
+										<div class="col-md-4">
+											<button class="pull-right btn btn-success" data-ng-click="vm.approve(request)" data-ng-show="!request.requestApproved" title="Approve the request and exchange contact info with the requester!">Approve</button>
+										</div>
+									</div>
+								</div>
+							</div>	
+								
+					</a>
+				</div>
+			</div>
+		</div>
+    </div>
+    
+    <div role="tabpanel" class="tab-pane" id="borrowing">
+    
+    </div>
+    
+    <div role="tabpanel" class="tab-pane" id="lending">
+    
+    </div>
+  </div>
+
+</div>
+</div>

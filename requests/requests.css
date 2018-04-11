@@ -1,0 +1,23 @@
+img.item-image{
+	width: 60px;
+	height: 60px;
+	object-fit: cover;
+}
+
+.tab-pane{
+	margin-top: 25px;
+}
+
+.btn-link{
+	background: transparent;
+	background-color: transparent;
+	color: #337ab7;
+	text-decoration: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.btn-link:hover{
+	color: darkblue;
+	text-decoration: underline;
+}
