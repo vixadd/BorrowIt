@@ -30,7 +30,7 @@
 		<div class="col-md-8 col-md-offset-2">
 			<h2>
 				<span class="pull-left">Condition</span>
-				<span class="pull-right fa fa-star fa-1x" data-ng-repeat="i in vm.range(vm.maxStars) track by $index" data-ng-class="vm.item.condition <= $index+1 ? 'filled' : ''"></span>
+				<span class="pull-right fa fa-star fa-1x" data-ng-repeat="i in vm.range(vm.maxStars) track by $index" data-ng-class="vm.maxStars - vm.item.condition < $index+1 ? 'filled' : ''"></span>
 			</h2>
 		</div>
 	</div>

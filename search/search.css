@@ -37,6 +37,7 @@ input#search-bar:focus:-ms-placeholder {
 img.item-image{
 	width: 60px;
 	height: 60px;
+	object-fit: cover;
 }
 
 .search { position: relative; }
