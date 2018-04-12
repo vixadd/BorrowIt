@@ -27,8 +27,16 @@ img.item-image{
 	background-color: #f7f7f7;
 }
 
+.list-group-item:hover .btn-readonly {
+	background-color: #f7f7f7;
+}
+
 .btn-readonly {
 	background: #ffffff;
 	border: 0.5px solid black;
-	border-radius: 5px;
+}
+
+.btn-readonly:hover {
+	color: black;
+	background: #f7f7f7;
 }
