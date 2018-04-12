@@ -7,14 +7,11 @@
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-		crossorigin="anonymous">
-	
-	<!-- Optional theme -->
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-		integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-		crossorigin="anonymous">
+		data-integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+		data-crossorigin="anonymous">
+		
+	<!-- Custom Theme -->
+	<link rel="stylesheet" href="./vendor/bootstrap/bootstrap-cosmo.min.css">
 		
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,9 +19,7 @@
 	<!-- Site information. -->
 	<title>{{metadata.title || 'BorrowIt'}}</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="./assets/style/index.css">
-	<link rel="stylesheet"
-		href="./assets/masterial-design-icons-3.0.1/iconfont/material-icons.css">
+	
 	
 	<!-- Stuff AngularJS Needs. -->
 	<script src="vendor/angular-1.6.9/angular.js"></script>
@@ -32,47 +27,12 @@
 	
 	<!-- Custom Styles -->
 	<link rel="stylesheet" href="/app.css">
-	
-	
-	
-	<!--    <script type="text/javascript" src="./user/user.js"></script> -->
+	<link rel="stylesheet" href="/index.css">
 </head>
 
-<body>
+<body data-ng-controller="AppController as vm">
 
-	<!-- Nav Bar -->
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-					aria-expanded="false"> 
-					<span class="icon-bar"></span> 
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#!/">BorrowIt</a>
-			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="#">Colleges Served</a></li>
-					<li><a href="#!/search">Find an Item</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#!/signup">Sign Up</a></li>
-					<li><a href="#!/signin">Sign In</a></li>
-					<li><a href="#!/signout">Sign Out</a></li>
-				</ul>
-			</div>
-			<!-- /.navbar-collapse -->
-		</div>
-		<!-- /.container-fluid -->
-	</nav>
-	<!-- End Nav Bar -->
+	<navbar signed-in="vm.signedIn" username="vm.username" new-requests="vm.newRequests" new-reviews="vm.newReviews"></navbar>
 
 	<div>
 		<div data-ng-view></div>
@@ -80,6 +40,7 @@
 	
 	<!-- Stuff our application needs. -->
 	<script type="text/javascript" src="./app.js"></script>
+	<script type="text/javascript" src="/nav/navbar.js"></script>
 	<script type="text/javascript" src="./home/home.js"></script>
 	<script type="text/javascript" src="./item/item.js"></script>
 	<script type="text/javascript" src="./search/search.js"></script>

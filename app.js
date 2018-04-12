@@ -31,6 +31,42 @@ angular.module("BorrowIt", ['ngRoute'])
     }])
 
 
-    .controller("AppController", function($rootScope) {
-	$scope.text = "Welcome";
+    .controller("AppController", function($scope) {
+    	var vm = this;
+    	
+    	vm.signedIn = false;
+    	vm.username = "";
+    	vm.newRequests = 0;
+    	vm.newReviews = 0;
+    	
+    	var poolData = { 
+    			UserPoolId : 'us-east-1_2tWi4ARGA', // Your user pool id here
+    		    ClientId : '1a9tue69nuhci0j7e4t0i83foc' // Your client id here
+    	};
+    		
+    	vm.userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+    	vm.cognitoUser;
+    	
+    	vm.getNewRequests = function(){
+    		vm.newRequests = 5;
+    	}
+    	
+    	vm.getNewReviews = function(){
+    		vm.newReviews = 6;
+    	}
+    	
+    	$scope.updateLoggedIn = function(){
+    		vm.cognitoUser = vm.userPool.getCurrentUser();
+    		if(vm.cognitoUser){
+    			vm.signedIn = true;
+    			vm.username = vm.cognitoUser.username;
+    			vm.getNewRequests();
+    			vm.getNewReviews();
+    		}
+    		else{
+    			vm.signedIn = false;
+    		}
+    	}
+    	
+    	$scope.updateLoggedIn();
     });

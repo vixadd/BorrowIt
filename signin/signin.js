@@ -5,8 +5,10 @@ angular.module('BorrowIt')
 	    controller: 'SigninController',
 	    controllerAs: 'vm'
 	})
-    }]).controller('SigninController', ['$scope', '$location', function($scope, $location) {
+    }]).controller('SigninController', ['$scope', '$location', '$routeParams', function($scope, $location, $routeParams) {
 		var vm = this;
+		
+		vm.backUrl = $routeParams.backUrl;
 		
 		vm.username;
 		vm.password;
@@ -37,9 +39,18 @@ angular.module('BorrowIt')
 			    cognitoUser.authenticateUser(authenticationDetails, {
 			    	
 			        onSuccess: function (result) {
-			            console.log('access token + ' + result.getAccessToken().getJwtToken());
-			            /*Use the idToken for Logins Map when Federating User Pools with identity pools or when passing through an Authorization Header to an API Gateway Authorizer*/
-			            console.log('idToken + ' + result.idToken.jwtToken);
+			        	$scope.$apply(function(){
+			        		$scope.updateLoggedIn();
+			        		console.log(result);
+			        		if(vm.backUrl){
+			        			$location.path(backUrl);
+			        		}
+			        		else{
+			        			$location.path('/');
+			        		}
+			        	});
+			        	
+			            
 			        },
 	
 			        onFailure: function(err) {

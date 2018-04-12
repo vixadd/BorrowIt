@@ -18,6 +18,7 @@ angular.module('BorrowIt')
 
 	    if (cognitoUser != null) {
 	        cognitoUser.signOut();
+	        $scope.updateLoggedIn();
 	        console.log("Signed out!");
 	    }
 	    
