@@ -10,19 +10,27 @@ angular.module('BorrowIt')
 	       )}
     ])
 
-    .controller('NewItemController', function() {
+    .controller('NewItemController', ['$location', '$scope', 'RestServices', function($location, $scope, rest) {
     	var vm = this;
     	
     	vm.newItem = {
-    			name : "",
-				owner: "OWNER-UID-HERE",
-				pic: "http://placehold.it/300x300",
-				description: ""
+    			title : "",
+				image: "http://placehold.it/300x300",
+				description: "",
+				condition: 5
     	}
     	
     	vm.submitItem = function(){
-    		// Submit the new item here.
+    		rest.newItem(vm.newItem)
+    		.then(function(response){
+    			$scope.$apply(function(){
+    				console.log(response.data);
+	    			$location.path('/item/'+response.data.ItemId);
+    			})
+    		}).catch(function(result){
+    			console.log(result);
+    		});
     	}
 	
 	
-    });
+    }]);
