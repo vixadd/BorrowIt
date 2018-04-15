@@ -39,8 +39,8 @@ input#search-bar:focus:-ms-placeholder {
 }
 
 img.item-image{
-	width: 60px;
-	height: 60px;
+	width: 90px;
+	height: 90px;
 	object-fit: cover;
 }
 
@@ -68,4 +68,9 @@ img.item-image{
 
 .search-button:hover .fa-search {
 	text-shadow: 2px 2px 2px #aaaaaa;
+}
+
+.fixed {
+	position: fixed;
+	top: 20px;
 }

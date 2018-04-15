@@ -16,3 +16,7 @@ img.imagedropshadow:hover {
 .text-light{
 	font-weight: lighter;
 }
+
+.college-logo:first-child {
+	margin-top: 100px;
+}
