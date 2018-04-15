@@ -16,6 +16,10 @@
 	<br>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
+			<div class="well text-center" data-ng-show="vm.items.length == 0">
+				<h2>No Items Available</h2>
+				<h4>Get out there and start lending!</h4>
+			</div>
 			<div class="list-group">
 					<div class="list-group-item"
 						data-ng-repeat="item in vm.items | searchFor:vm.searchString"

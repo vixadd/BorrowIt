@@ -18,11 +18,14 @@
 				<ul class="nav navbar-nav">
 					<li><a href="#">Colleges Served</a></li>
 					<li><a href="#!/search">Find an Item</a></li>
+					<li data-ng-show="vm.signedIn"><a href="#!/item/new/add">Add an Item</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li data-ng-show="!vm.signedIn"><a href="#!/signup">Sign Up</a></li>
 					<li data-ng-show="!vm.signedIn"><a href="#!/signin">Sign In</a></li>
 					<li data-ng-show="vm.signedIn"><a data-ng-href="#!/user/{{vm.username}}"><i class="fa fa-lg fa-user-circle"></i> {{vm.username}}</a></li>
+					<li data-ng-show="vm.signedIn"><a href="#!/requests">Requests</a></li>
+					<li data-ng-show="vm.signedIn"><a href="#!/reviews">Reviews</a></li>
 					<li data-ng-show="vm.signedIn"><a href="#!/signout">Sign Out</a></li>
 				</ul>
 			</div>

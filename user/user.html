@@ -1,13 +1,24 @@
 <link rel="stylesheet" href="./user/user.css">
 <div class="container">
-	<div class="row text-center">
-		<h2>{{vm.user.username}}</h2>
-		<hr>
+	<div class="jumbotron well text-center" data-ng-show="!vm.userExists && !vm.whoopsTime">
+		<h1>Loading</h1>
+		<h3>This may take a second...</h3>
+	</div>
+	<div class="jumbotron well text-center" data-ng-show="!vm.userExists && vm.whoopsTime">
+		<h1>Whoops!</h1>
+		<h3>This user doesn't exist...</h3>
+	</div>
+	<div class="page-header text-center">
+		<h1>{{vm.user.username}}</h1>
 	</div>
 	<div class="row">
 		<div class="col-md-8">
 			<div class="row">
 				<div class="col-md-12">
+					<div class="well text-center" data-ng-show="vm.items.length == 0 && vm.userExists">
+						<h2>Nothing Here :(</h2>
+						<h4>This user doesn't have any items to lend.</h4>
+					</div>
 					<div class="list-group">
 							<a class="list-group-item"
 								data-ng-repeat="item in vm.items"
@@ -25,7 +36,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-4 info-container">
+		<div class="col-md-4 info-container" data-ng-show="vm.userExists">
 			<div class="row">
 				<div class="col-md-12">
 					<h4>

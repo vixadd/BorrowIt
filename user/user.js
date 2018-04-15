@@ -12,6 +12,9 @@ angular.module('BorrowIt')
     	var vm = this;
     	vm.username = $routeParams.id;
     	
+    	vm.userExists = false;
+    	vm.whoopsTime = false;
+    	
     	vm.user = {};
     	vm.items = [];
     	vm.maxStars = 5;
@@ -21,12 +24,14 @@ angular.module('BorrowIt')
     		.then(function(response){
     			$scope.$apply(function(){
     				vm.user = response.data;
+    				vm.userExists = true;
     				vm.user.lenderRep = vm.calcRep(vm.user.lendRep, vm.user.totalLendRatings);
     				vm.user.borrowerRep = vm.calcRep(vm.user.borrowRep, vm.user.totalBorrowRatings);
     				console.log(vm.user);
     			});
     		}).catch(function(result){
     			console.log(result);
+    			vm.whoopsTime = true;
     		});
     	}
     	

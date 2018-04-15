@@ -41,7 +41,9 @@ angular.module('BorrowIt')
 	
 		    });
 		}
-		console.log(token);
+		else{
+			$location.path('/signin');
+		}
 		var body = JSON.stringify(item);
 		var params = {
 		}
@@ -86,6 +88,9 @@ angular.module('BorrowIt')
 	
 		    });
 		}
+		else{
+			$location.path('/signin');
+		}
 		var additionalParams = {
 			headers : {
 				'Authorization' : token
@@ -112,6 +117,9 @@ angular.module('BorrowIt')
 	            token = session.getIdToken().getJwtToken();
 	
 		    });
+		}
+		else{
+			$location.path('/signin');
 		}
 		var additionalParams = {
 			headers : {
@@ -140,6 +148,9 @@ angular.module('BorrowIt')
 	
 		    });
 		}
+		else{
+			$location.path('/signin');
+		}
 		var additionalParams = {
 			headers : {
 				'Authorization' : token
@@ -167,6 +178,9 @@ angular.module('BorrowIt')
 	
 		    });
 		}
+		else{
+			$location.path('/signin');
+		}
 		var additionalParams = {
 			headers : {
 				'Authorization' : token
@@ -193,6 +207,9 @@ angular.module('BorrowIt')
 	            token = session.getIdToken().getJwtToken();
 	
 		    });
+		}
+		else{
+			$location.path('/signin');
 		}
 		var additionalParams = {
 			headers : {
@@ -225,6 +242,9 @@ angular.module('BorrowIt')
 	
 		    });
 		}
+		else{
+			$location.path('/signin');
+		}
 		var additionalParams = {
 			headers : {
 				'Authorization' : token
@@ -254,6 +274,9 @@ angular.module('BorrowIt')
 	            token = session.getIdToken().getJwtToken();
 	
 		    });
+		}
+		else{
+			$location.path('/signin');
 		}
 		var additionalParams = {
 			headers : {
