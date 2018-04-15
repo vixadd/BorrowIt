@@ -12,3 +12,7 @@ img.imagedropshadow:hover {
 .filled{
 	color: orange;
 }
+
+.text-light{
+	font-weight: lighter;
+}

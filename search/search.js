@@ -9,7 +9,7 @@ angular.module('BorrowIt')
 	)}
     ])
 
-    .controller('SearchController', ['$routeParams', 'RestServices', function($routeParams, rest) {
+    .controller('SearchController', ['$routeParams', '$location', '$scope', 'RestServices', function($routeParams, $location, $scope, rest) {
 		var vm = this;
 		
 		vm.searchString = "";
@@ -24,11 +24,17 @@ angular.module('BorrowIt')
 		vm.getItems = function(){
 			rest.getItems()
 			.then(function(response){
-				console.log(response);
-				vm.items = response.data;
+				$scope.$apply(function(){
+					console.log(response);
+					vm.items = response.data;
+				});
 			}).catch(function(result){
 				console.log(result);
 			});
+		}
+		
+		vm.goToItemPage = function(itemId){
+			$location.path('/item/'+itemId);
 		}
 		
 		vm.getItems();

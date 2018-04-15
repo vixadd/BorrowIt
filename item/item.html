@@ -1,27 +1,24 @@
+<link rel="stylesheet" href="/item/item.css">
+
 <div class="container">
-	<div class="row">
-		<div class="col-md-4">
-			<h1>{{vm.item.name}}</h1>
-		</div>
-	</div>
 
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
-			<img class="img img-responsive imagedropshadow" src="{{vm.item.pic}}" />
+			<img class="img img-responsive item-img imagedropshadow center-block" src="{{vm.item.image}}" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<h1>{{vm.item.title}} <b class="text-light">|</b> <small> {{vm.item.description}}</small></h1>
+			
 		</div>
 	</div>
 	<hr>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<p class="lead">{{vm.item.description}}</p>
-		</div>
-	</div>
-	
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
 			<h2>
 				<span class="pull-left">Owner</span>
-				<span class="pull-right"><a data-ng-href="#!/user/vm.item.owner">{{vm.itemOwner.userName}}</a></span>
+				<span class="pull-right"><a data-ng-href="#!/user/vm.item.owner">{{vm.item.ownerUser}}</a></span>
 			</h2>
 		</div>
 	</div>
@@ -49,8 +46,8 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<blockquote data-ng-repeat="comment in vm.item.comments track by $index" data-ng-class="$index%2==0 ? '' : 'blockquote-reverse'">
-		  		<p>{{comment.text}}</p>
-		 		<footer><a data-ng-href="#!/user/comment.userId">{{comment.userName}}</a></footer>
+		  		<p>{{comment.comment}}</p>
+		 		<footer><a data-ng-href="#!/user/comment.userId">{{comment.username}}</a></footer>
 			</blockquote>
 		</div>
 	</div>

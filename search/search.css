@@ -33,6 +33,10 @@ input#search-bar:focus:-ms-placeholder {
     opacity: 0;
 }
 
+.list-group-item:hover {
+	cursor: pointer;
+	background-color: #f7f7f7;
+}
 
 img.item-image{
 	width: 60px;

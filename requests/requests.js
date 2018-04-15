@@ -9,7 +9,7 @@ angular.module('BorrowIt')
 	)}
     ])
 
-    .controller('RequestsController', ['$routeParams', '$location', function($routeParams, $location) {
+    .controller('RequestsController', ['$routeParams', '$location', '$scope', 'RestServices', function($routeParams, $location, $scope, rest) {
     	var vm = this;
     	
     	vm.borrowRequests;
@@ -20,141 +20,46 @@ angular.module('BorrowIt')
     	vm.myUsername = "BorrowerUser1";
     	
     	vm.getRequests = function() {
-    		vm.borrowRequests = [
-    			{
-    				item: {
-	    				id: 'ITEM1',
-	    				title: 'HDMI Cable: 6 Feet long, and good Quality',
-	    				image: 'https://static.computercablestore.net/content/images/thumbs/0012304_10-meter-328-ft-high-speed-hdmi-cable-with-ethernet.jpeg',
-	    				available: false
-    	    		},
-    	    		itemLent: false,
-    	    		itemReturned: false,
-    	    		requestApproved: false,
-    	    		owner: "JonahLazar",
-    	    		requester: "BorrowerUser1"
-    			},
-    			{
-    				item: {
-	    				id: 'ITEM1',
-	    				title: 'HDMI Cable: 6 Feet long, and good Quality',
-	    				image: 'https://static.computercablestore.net/content/images/thumbs/0012304_10-meter-328-ft-high-speed-hdmi-cable-with-ethernet.jpeg',
-	    				available: true
-    	    		},
-    	    		itemLent: false,
-    	    		itemReturned: false,
-    	    		requestApproved: true,
-    	    		owner: "JonahLazar",
-    	    		requester: "BorrowerUser1",
-    	    		ownerEmail: "jonah.lazar.14@cnu.edu",
-    	    		requesterEmail: "joshkipper@gmail.com"
-    			}
-    		];
     		
-    		vm.lendRequests = [
-    			{
-    				item: {
-	    				id: 'ITEM1',
-	    				title: 'HDMI Cable: 6 Feet long, and good Quality',
-	    				image: 'https://static.computercablestore.net/content/images/thumbs/0012304_10-meter-328-ft-high-speed-hdmi-cable-with-ethernet.jpeg',
-	    				available: false
-    	    		},
-    	    		itemLent: false,
-    	    		itemReturned: false,
-    	    		requestApproved: false,
-    	    		owner: "JonahLazar",
-    	    		requester: "BorrowerUser1"
-    			},
-    			{
-    				item: {
-	    				id: 'ITEM1',
-	    				title: 'HDMI Cable: 6 Feet long, and good Quality',
-	    				image: 'https://static.computercablestore.net/content/images/thumbs/0012304_10-meter-328-ft-high-speed-hdmi-cable-with-ethernet.jpeg',
-	    				available: true
-    	    		},
-    	    		itemLent: false,
-    	    		itemReturned: false,
-    	    		requestApproved: true,
-    	    		owner: "JonahLazar",
-    	    		requester: "BorrowerUser1",
-    	    		ownerEmail: "jonah.lazar.14@cnu.edu",
-    	    		requesterEmail: "joshkipper@gmail.com"
-    			}
-    		];
+    		rest.getBorrowRequests()
+    		.then(function(response){
+    			$scope.$apply(function(){
+    				console.log(response.data);
+    				vm.borrowRequests = response.data;
+    			});
+    		}).catch(function(result){
+    			console.log(result);
+    		});
     		
-    		vm.currentlyBorrowedItems = [
-    			{
-    				item: {
-	    				id: 'ITEM1',
-	    				title: 'HDMI Cable: 6 Feet long, and good Quality',
-	    				image: 'https://static.computercablestore.net/content/images/thumbs/0012304_10-meter-328-ft-high-speed-hdmi-cable-with-ethernet.jpeg',
-	    				available: false,
-	    				currentBorrower: 'BorrowerUser1',
-	    				borrowStartTime: 1523430841
-    	    		},
-    	    		itemLent: true,
-    	    		itemReturned: false,
-    	    		requestApproved: true,
-    	    		owner: "JonahLazar",
-    	    		requester: "BorrowerUser1",
-    	    		ownerEmail: "jonah.lazar.14@cnu.edu",
-    	    		requesterEmail: "joshkipper@gmail.com"
-    			},
-    			{
-    				item: {
-	    				id: 'ITEM1',
-	    				title: 'HDMI Cable: 6 Feet long, and good Quality',
-	    				image: 'https://static.computercablestore.net/content/images/thumbs/0012304_10-meter-328-ft-high-speed-hdmi-cable-with-ethernet.jpeg',
-	    				available: false,
-	    				currentBorrower: 'BorrowerUser1',
-	    				borrowStartTime: 1523430841
-    	    		},
-    	    		itemLent: true,
-    	    		itemReturned: false,
-    	    		requestApproved: true,
-    	    		owner: "JonahLazar",
-    	    		requester: "BorrowerUser1",
-    	    		ownerEmail: "jonah.lazar.14@cnu.edu",
-    	    		requesterEmail: "joshkipper@gmail.com"
-    			}
-    		];
+    		rest.getLendRequests()
+    		.then(function(response){
+    			$scope.$apply(function(){
+    				console.log(response.data);
+    				vm.lendRequests = response.data;
+    			});
+    		}).catch(function(result){
+    			console.log(result);
+    		});
     		
-    		vm.currentlyLentItems = [
-    			{
-    				item: {
-	    				id: 'ITEM1',
-	    				title: 'HDMI Cable: 6 Feet long, and good Quality',
-	    				image: 'https://static.computercablestore.net/content/images/thumbs/0012304_10-meter-328-ft-high-speed-hdmi-cable-with-ethernet.jpeg',
-	    				available: false,
-	    				currentBorrower: 'BorrowerUser1',
-	    				borrowStartTime: 1523430841
-    	    		},
-    	    		itemLent: true,
-    	    		itemReturned: false,
-    	    		requestApproved: false,
-    	    		owner: "JonahLazar",
-    	    		requester: "BorrowerUser1",
-    	    		ownerEmail: "jonah.lazar.14@cnu.edu",
-    	    		requesterEmail: "joshkipper@gmail.com"
-    			},
-    			{
-    				item: {
-	    				id: 'ITEM1',
-	    				title: 'HDMI Cable: 6 Feet long, and good Quality',
-	    				image: 'https://static.computercablestore.net/content/images/thumbs/0012304_10-meter-328-ft-high-speed-hdmi-cable-with-ethernet.jpeg',
-	    				available: false,
-	    				currentBorrower: 'BorrowerUser1',
-	    				borrowStartTime: 1523430841
-    	    		},
-    	    		itemLent: true,
-    	    		itemReturned: false,
-    	    		requestApproved: true,
-    	    		owner: "JonahLazar",
-    	    		requester: "BorrowerUser1",
-    	    		ownerEmail: "jonah.lazar.14@cnu.edu",
-    	    		requesterEmail: "joshkipper@gmail.com"
-    			}
-    		];
+    		rest.getCurrentlyBorrowing()
+    		.then(function(response){
+    			$scope.$apply(function(){
+    				console.log(response.data);
+    				vm.currentlyBorrowedItems = response.data;
+    			});
+    		}).catch(function(result){
+    			console.log(result);
+    		});
+    		
+    		rest.getCurrentlyLending()
+    		.then(function(response){
+    			$scope.$apply(function(){
+    				console.log(response.data);
+    				vm.currentlyLentItems = response.data;
+    			});
+    		}).catch(function(result){
+    			console.log(result);
+    		});
     	}
     	
     	// Link to a user page.
@@ -163,8 +68,9 @@ angular.module('BorrowIt')
     		$location.path('/user/' + username);
     	}
     	
-    	vm.goToItemPage = function(item){
-    		$location.path('/item/' + item.id);
+    	// Link to an item page
+    	vm.goToItemPage = function(itemId){
+    		$location.path('/item/' + itemId);
     	}
     	
     	// Mark that you have received an item to borrow
