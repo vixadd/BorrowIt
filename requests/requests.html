@@ -48,7 +48,6 @@
 														Request {{request.requestApproved ? 'Approved' : 'Pending'}}
 													</small>
 												</h4>
-												<button class="btn btn-success btn-sm pull-right" data-ng-show="request.itemAvailable && request.requestApproved" data-ng-click="vm.markReceived(request, $event)">Item Received</button>
 											</div>
 										</div>
 										
@@ -60,6 +59,7 @@
 												<p data-ng-show="request.requestApproved">Contact Info: <small>{{request.ownerEmail}}</small></p>
 											</div>
 											<div class="col-md-4 text-center">
+												<button class="btn btn-success btn-sm pull-right" data-ng-show="request.itemAvailable && request.requestApproved" data-ng-click="vm.markReceived(request, $event)">Item Received</button>
 											</div>
 										</div>
 									</div>

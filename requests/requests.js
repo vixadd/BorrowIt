@@ -141,7 +141,7 @@ angular.module('BorrowIt')
     	}
     	
     	vm.getDeltaTime = function(startTime){
-    		return Date.now() - (startTime*1000);
+    		return Date.now() - (startTime);
     	}
     	
     	vm.getRequests();
