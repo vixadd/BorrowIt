@@ -221,7 +221,7 @@ angular.module('BorrowIt')
 				'requestId' : requestId
 			}
 		
-		return apigClient.requestsRequestIdApprove(params, {}, additionalParams);
+		return apigClient.requestsRequestIdApprovePost(params, {}, additionalParams);
 	}
 	
 	restServices.markReceived = function(requestId){
@@ -254,7 +254,7 @@ angular.module('BorrowIt')
 			'requestId' : requestId
 		}
 		
-		return apigClient.requestsRequestIdMarkLent(params, {}, additionalParams);
+		return apigClient.requestsRequestIdMarkLentPost(params, {}, additionalParams);
 	}
 	
 	restServices.markReturned = function(requestId){
@@ -287,7 +287,105 @@ angular.module('BorrowIt')
 			'requestId' : requestId
 		}
 		
-		return apigClient.requestsRequestIdMarkReturned(params, {}, additionalParams);
+		return apigClient.requestsRequestIdMarkReturnedPost(params, {}, additionalParams);
+	}
+	
+	restServices.newRequest = function(itemId){
+		cognitoUser = userPool.getCurrentUser();
+		var token;
+		if(cognitoUser != null){
+			cognitoUser.getSession(function(err, session) {
+	            if (err) {
+	               console.log(err);
+	                return;
+	            }
+	            console.log('session validity: ' + session.isValid());
+	            if(!session.isValid()){
+	            	$location.path('/signin');
+	            }
+	
+	            token = session.getIdToken().getJwtToken();
+	
+		    });
+		}
+		else{
+			$location.path('/signin');
+		}
+		var additionalParams = {
+			headers : {
+				'Authorization' : token
+			}
+		}
+		
+		var body = {ItemId : itemId};
+		body = JSON.stringify(body);
+		
+		return apigClient.requestsPost({}, body, additionalParams);
+	}
+	
+	restServices.getReviews = function(reviewType){
+		cognitoUser = userPool.getCurrentUser();
+		var token;
+		if(cognitoUser != null){
+			cognitoUser.getSession(function(err, session) {
+	            if (err) {
+	               console.log(err);
+	                return;
+	            }
+	            console.log('session validity: ' + session.isValid());
+	            if(!session.isValid()){
+	            	$location.path('/signin');
+	            }
+	
+	            token = session.getIdToken().getJwtToken();
+	
+		    });
+		}
+		else{
+			$location.path('/signin');
+		}
+		var additionalParams = {
+			headers : {
+				'Authorization' : token
+			}
+		}
+		var params = {
+			'type' : reviewType
+		}
+		
+		return apigClient.reviewsGet(params, {}, additionalParams);
+	}
+	
+	restServices.updateReview = function(review){
+		cognitoUser = userPool.getCurrentUser();
+		var token;
+		if(cognitoUser != null){
+			cognitoUser.getSession(function(err, session) {
+	            if (err) {
+	               console.log(err);
+	                return;
+	            }
+	            console.log('session validity: ' + session.isValid());
+	            if(!session.isValid()){
+	            	$location.path('/signin');
+	            }
+	
+	            token = session.getIdToken().getJwtToken();
+	
+		    });
+		}
+		else{
+			$location.path('/signin');
+		}
+		var additionalParams = {
+			headers : {
+				'Authorization' : token
+			}
+		}
+		
+		var body = JSON.stringify(review);
+		
+		return apigClient.reviewsPost({}, body, additionalParams);
 	}
 	
 	return restServices;

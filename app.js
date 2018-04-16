@@ -71,5 +71,14 @@ angular.module("BorrowIt", ['ngRoute'])
     		}
     	}
     	
+    	$scope.isLoggedIn = function(){
+    		if($scope.loggedIn){
+    			return true;
+    		}
+    		
+    		return false;
+    	}
+    	
+    	
     	$scope.updateLoggedIn();
     });

@@ -43,6 +43,14 @@
 	
 	<hr>
 	
+	<div class="row" data-ng-show="vm.loggedIn">
+		<div class="col-md-8 col-md-offset-2">
+			<button data-ng-click="vm.borrowItem()" class="btn btn-block btn-success btn-lg" data-ng-class="vm.disableButton ? 'disabled' : '' ">{{vm.itemRequested ? 'Request Sent!' : vm.requesting ? 'Sending Request ' : 'Borrow This!'}}<i data-ng-show="vm.requesting" class="fa fa-cog fa-spin"></i></button>
+		</div>
+	</div>
+	
+	<br>
+	
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<blockquote data-ng-repeat="comment in vm.item.comments track by $index" data-ng-class="$index%2==0 ? '' : 'blockquote-reverse'">

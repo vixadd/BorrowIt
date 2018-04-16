@@ -19,6 +19,10 @@ angular.module('BorrowIt')
     	
     	vm.myUsername = "BorrowerUser1";
     	
+    	vm.alertMessage = "";
+    	vm.showAlert = false;
+    	vm.error = true;
+    	
     	vm.getRequests = function() {
     		
     		rest.getBorrowRequests()
@@ -76,17 +80,64 @@ angular.module('BorrowIt')
     	// Mark that you have received an item to borrow
     	vm.markReceived = function(request, event){
     		event.stopPropagation();
+    		
+    		rest.markReceived(request.RequestId)
+    		.then(function(response){
+    			$scope.$apply(function(){
+    				vm.getRequests();
+        			vm.showAlert = false;
+    			});
+    		}).catch(function(result){
+    			$scope.$apply(function(){
+    				console.log(result);
+        			vm.alertMessage = "Unable to mark the item as received. Try again later.";
+        			vm.showAlert = true;
+        			vm.error = true;
+    			});
+    		});
     	}
     	
     	// Mark that the borrower has returned the item to you.
     	vm.markReturned = function(request, event){
     		event.stopPropagation();
+    		
+    		rest.markReturned(request.RequestId)
+    		.then(function(response){
+    			$scope.$apply(function(){
+    				vm.getRequests();
+    				vm.error = false;
+    				vm.alertMessage = request.itemTitle + " has been returned!";
+        			vm.showAlert = true;
+    			});
+    		}).catch(function(result){
+    			$scope.$apply(function(){
+    				console.log(result);
+        			vm.alertMessage = "Unable to mark the item as returned. Try again later.";
+        			vm.showAlert = true;
+        			vm.error = true;
+    			});
+    		});
+    		
     	}
     	
     	// Approve a request to borrow your item.
     	vm.approve = function(request, event){
     		event.stopPropagation();
-    		// Approve the request.
+    		
+    		rest.approveRequest(request.RequestId)
+    		.then(function(response){
+    			$scope.$apply(function(){
+    				vm.getRequests();
+        			vm.showAlert = false;
+    			});
+    		}).catch(function(result){
+    			$scope.$apply(function(){
+    				console.log(result);
+        			vm.alertMessage = "Unable to approve request. Try again later.";
+        			vm.showAlert = true;
+        			vm.error = true;
+    			});
+    		});
     	}
     	
     	vm.getDeltaTime = function(startTime){

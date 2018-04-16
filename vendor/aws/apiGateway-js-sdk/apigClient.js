@@ -245,42 +245,6 @@ apigClientFactory.newClient = function (config) {
     };
     
     
-    apigClient.itemsItemIdReviewPost = function (params, body, additionalParams) {
-        if(additionalParams === undefined) { additionalParams = {}; }
-        
-        apiGateway.core.utils.assertParametersDefined(params, ['itemId'], ['body']);
-        
-        var itemsItemIdReviewPostRequest = {
-            verb: 'post'.toUpperCase(),
-            path: pathComponent + uritemplate('/items/{itemId}/review').expand(apiGateway.core.utils.parseParametersToObject(params, ['itemId'])),
-            headers: apiGateway.core.utils.parseParametersToObject(params, []),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
-            body: body
-        };
-        
-        
-        return apiGatewayClient.makeRequest(itemsItemIdReviewPostRequest, authType, additionalParams, config.apiKey);
-    };
-    
-    
-    apigClient.itemsItemIdReviewOptions = function (params, body, additionalParams) {
-        if(additionalParams === undefined) { additionalParams = {}; }
-        
-        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
-        
-        var itemsItemIdReviewOptionsRequest = {
-            verb: 'options'.toUpperCase(),
-            path: pathComponent + uritemplate('/items/{itemId}/review').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
-            headers: apiGateway.core.utils.parseParametersToObject(params, []),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
-            body: body
-        };
-        
-        
-        return apiGatewayClient.makeRequest(itemsItemIdReviewOptionsRequest, authType, additionalParams, config.apiKey);
-    };
-    
-    
     apigClient.requestsPost = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
@@ -512,6 +476,60 @@ apigClientFactory.newClient = function (config) {
         
         
         return apiGatewayClient.makeRequest(requestsRequestIdMarkReturnedOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.reviewsGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['type'], ['body']);
+        
+        var reviewsGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/reviews').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['type']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(reviewsGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.reviewsPost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var reviewsPostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/reviews').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(reviewsPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.reviewsOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var reviewsOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/reviews').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(reviewsOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
     
