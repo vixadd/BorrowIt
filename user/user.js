@@ -51,7 +51,7 @@ angular.module('BorrowIt')
 		}
     	
     	vm.calcRep = function(totalRep, totalRatings){
-    		if(totalRatings = 0){
+    		if(totalRatings === 0){
     			return 0;
     		}
     		

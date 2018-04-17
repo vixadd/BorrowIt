@@ -20,3 +20,7 @@ img.imagedropshadow:hover {
 .college-logo:first-child {
 	margin-top: 100px;
 }
+
+textarea {
+	resize: none;
+}

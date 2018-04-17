@@ -64,7 +64,7 @@ angular.module('BorrowIt')
 		    			vm.error = false;
 		    			vm.submitDisabled = false;
 		    			vm.submitting = false;
-		    			vm.selectedReview = null;
+		    			delete vm.selectedReview;
 	    			});
 	    		}).catch(function(result){
 	    			$scope.$apply(function(){
@@ -133,5 +133,5 @@ angular.module('BorrowIt')
     }*/
 
     return timeString;
-};
+  };
 });
