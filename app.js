@@ -37,6 +37,7 @@ angular.module("BorrowIt", ['ngRoute'])
     	$scope.loggedIn = false;
     	vm.signedIn = false;
     	vm.username = "";
+    	$scope.loggedInUsername = "";
     	vm.newRequests = 0;
     	vm.newReviews = 0;
     	
@@ -62,6 +63,7 @@ angular.module("BorrowIt", ['ngRoute'])
     			vm.signedIn = true;
     			$scope.loggedIn = true;
     			vm.username = vm.cognitoUser.username;
+    			$scope.loggedInUsername = vm.username;
     			vm.getNewRequests();
     			vm.getNewReviews();
     		}

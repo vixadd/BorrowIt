@@ -22,7 +22,7 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li data-ng-show="!vm.signedIn"><a href="#!/signup">Sign Up</a></li>
-					<li data-ng-show="!vm.signedIn"><a href="#!/signin">Sign In</a></li>
+					<li data-ng-show="!vm.signedIn"><a data-ng-click="vm.signInPage()" href="">Sign In</a></li>
 					<li data-ng-show="vm.signedIn"><a data-ng-href="#!/user/{{vm.username}}"><i class="fa fa-lg fa-user-circle"></i> {{vm.username}}</a></li>
 					<li data-ng-show="vm.signedIn"><a href="#!/requests">Requests</a></li>
 					<li data-ng-show="vm.signedIn"><a href="#!/reviews">Reviews</a></li>

@@ -43,7 +43,7 @@ angular.module('BorrowIt')
 			        		$scope.updateLoggedIn();
 			        		console.log(result);
 			        		if(vm.backUrl){
-			        			$location.path(backUrl);
+			        			$location.url(vm.backUrl);
 			        		}
 			        		else{
 			        			$location.path('/');
