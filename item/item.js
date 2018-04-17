@@ -14,6 +14,7 @@ app.controller('ItemController', ['$routeParams', '$scope', 'RestServices', func
 		var vm = this;
 		
 		vm.loggedIn = $scope.loggedIn;
+		vm.loggedInUsername = $scope.loggedInUsername;
 		
 		vm.itemId = $routeParams.id;
 		

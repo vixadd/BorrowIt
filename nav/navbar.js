@@ -10,6 +10,11 @@ angular.module('BorrowIt')
 		newReviews: '<'
 	}
 })
-.controller('NavController', [function(){
+.controller('NavController', [ '$location', function($location){
 	var vm = this;
+	
+	vm.signInPage = function(){
+		var currpath = $location.url();
+		$location.url('/signin?backUrl='+currpath);
+	}
 }]);
