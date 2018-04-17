@@ -17,8 +17,6 @@ angular.module('BorrowIt')
     	vm.currentlyBorrowedItems;
     	vm.currentlyLentItems;
     	
-    	vm.myUsername = "BorrowerUser1";
-    	
     	vm.alertMessage = "";
     	vm.showAlert = false;
     	vm.error = true;
@@ -145,7 +143,6 @@ angular.module('BorrowIt')
     	}
     	
     	vm.getRequests();
-    	console.log(Date.now())
 }])
 .filter('millSecondsToTimeString', function() {
   return function(millseconds) {
