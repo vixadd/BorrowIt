@@ -42,7 +42,7 @@ angular.module('BorrowIt')
 			        	$scope.$apply(function(){
 			        		$scope.updateLoggedIn();
 			        		console.log(result);
-			        		if(vm.backUrl){
+			        		if(vm.backUrl && !vm.backUrl.includes('signout')){
 			        			$location.url(vm.backUrl);
 			        		}
 			        		else{
