@@ -1,4 +1,4 @@
-# CPSC_498_BorrowIt
+# BorrowIt
 Borrow It App for our Computer Science capstone class. Written with angularjs base application.
 
 # Purpose
